@@ -1,6 +1,7 @@
 import { useState } from "react";
 import QuoteDisplay from "./components/QuoteDisplay";
 import "./style.css";
+import QuoteButton from "./components/QuoteButton";
 
 const App = () => {
   const [quote, setQuote] = useState({
@@ -10,10 +11,13 @@ const App = () => {
 
   const generatorRandomQuote = async () => {
     try {
-      const response = await fetch("https://api.quotable.io/random");
+      const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+      const apiUrl = "https://favqs.com/api/qotd";
+
+      const response = await fetch(proxyUrl + apiUrl);
       if (!response.ok) throw new Error("Ошибка загрузки цитаты");
       const data = await response.json();
-      setQuote({ content: data.content, author: data.author });
+      setQuote({ content: data.quote.body, author: data.quote.author });
     } catch (error) {
       console.error(error.message);
       alert("Не удалось загрузить цитату.");
@@ -25,6 +29,7 @@ const App = () => {
       <h1>Генератор цитат</h1>
 
       <QuoteDisplay content={quote.content} author={quote.author} />
+      <QuoteButton onClick={generatorRandomQuote} />
     </div>
   );
 };

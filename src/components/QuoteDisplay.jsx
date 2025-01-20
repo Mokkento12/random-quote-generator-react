@@ -2,8 +2,8 @@ import PropTypes from "prop-types";
 
 const QuoteDisplay = ({ content, author }) => {
   return (
-    <div className="qoute-display">
-      <p>"{content}"</p>
+    <div className="quote-display">
+      <blockquote>{content}</blockquote>
       <h3>-{author || "Неизвестный автор"}</h3>
     </div>
   );
