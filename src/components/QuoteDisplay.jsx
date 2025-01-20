@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const QuoteDisplay = ({ content, author }) => {
   return (
     <div className="qoute-display">
-      <p>`&quote`{content}`&quote`</p>
+      <p>"{content}"</p>
       <h3>-{author || "Неизвестный автор"}</h3>
     </div>
   );
