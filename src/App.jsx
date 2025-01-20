@@ -1,7 +1,7 @@
 import { useState } from "react";
 import QuoteDisplay from "./components/QuoteDisplay";
-import "./style.css";
 import QuoteButton from "./components/QuoteButton";
+import "./style.css";
 
 const App = () => {
   const [quote, setQuote] = useState({

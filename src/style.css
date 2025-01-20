@@ -32,3 +32,15 @@ body {
 .quote-button:hover {
   background-color: #0056b3;
 }
+
+quote-display blockquote {
+  quotes: "«" "»";
+}
+
+quote-display blockquote::before {
+  content: open-quote;
+}
+
+quote-display blockquote::after {
+  content: close-quote;
+}
